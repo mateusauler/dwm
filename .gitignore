@@ -5,3 +5,6 @@ config.h
 
 bare/
 patches/
+
+*.rej
+*.orig
