@@ -6,6 +6,7 @@
 - Gapless Grid
 - Hide Vacant Tags
 - No Border Floating fix
+- No Title
 - Resize Corners
 - Restartsig
 - Rotate Stack
