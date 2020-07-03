@@ -37,7 +37,7 @@ static const Rule rules[] = {
 	{ "st",                       NULL,       NULL,           0,         0,          1,          -1,        -1 },
 	{ "URxvt",                    NULL,       NULL,           0,         0,          1,          -1,        -1 },
 	{ "libreoffice-writer",       NULL,       NULL,           0,         0,          0,          -1,        -1 },
-	{ NULL,                       NULL,       "Event Tester", 0,         1,          0,           1,        -1 }, /* xev */
+	{ NULL,                       NULL,       "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
 /* layout(s) */
