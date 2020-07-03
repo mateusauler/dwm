@@ -2,7 +2,6 @@
 
 ### Currently applied patches:
 
-- Awesome Bar
 - Centered Master
 - Gapless Grid
 - Hide Vacant Tags
