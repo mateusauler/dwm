@@ -12,5 +12,6 @@
 - Rotate Stack
 - Status All Mons
 - Swallow
+- Systray
 - Useless Gap
 
