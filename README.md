@@ -2,6 +2,7 @@
 
 ### Currently applied patches:
 
+- Center
 - Centered Master
 - Gapless Grid
 - Hide Vacant Tags
