@@ -2,7 +2,6 @@
 
 ### Currently applied patches:
 
-- Attach Aside
 - Awesome Bar
 - Centered Master
 - Gapless Grid
