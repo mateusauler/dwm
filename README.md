@@ -6,6 +6,7 @@
 - Centered Master
 - Gapless Grid
 - Hide Vacant Tags
+- Move Stack
 - No Border Floating fix
 - No Title
 - Resize Corners
