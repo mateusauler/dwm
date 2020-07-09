@@ -11,7 +11,7 @@ static const int showsystray        = 1;     /* 0 means no systray */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
+static const char *fonts[]          = { "Droid Sans Mono Nerd Font:size=10", "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -79,6 +79,8 @@ static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", dmenufon
 static const char *termcmd[]    = { "st", NULL };
 
 #include "movestack.c"
+#include "customkeys.h"
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
@@ -123,6 +125,14 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ControlMask,           XK_r,      quit,           {0} },
 	{ MODKEY|ShiftMask,             XK_r,      quit,           {1} },
+
+	// Audio stuff
+	{ 0,                            XK_AuPlay,     spawn,  SHCMD("playerctl play-pause") },
+	{ 0,                            XK_AuPrev,     spawn,  SHCMD("playerctl previous") },
+	{ 0,                            XK_AuNext,     spawn,  SHCMD("playerctl next") },
+	{ 0,                            XK_AuLVolume,  spawn,  SHCMD("pactl set-sink-volume 1 -5%") },
+	{ 0,                            XK_AuRVolume,  spawn,  SHCMD("pactl set-sink-volume 1 +5%") },
+	{ 0,                            XK_AuMute	,  spawn,  SHCMD("pactl set-sink-mute 1 toggle") },
 };
 
 /* button definitions */
