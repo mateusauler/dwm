@@ -12,7 +12,7 @@ static const int swallowfloating    = 0;        /* 1 means swallow floating wind
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Droid Sans Mono Nerd Font:size=10", "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char dmenufont[]       = "monospace:size=12";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -35,12 +35,14 @@ static const Rule rules[] = {
 	/* class                      instance    title           tags mask iscentered isfloating  isterminal  noswallow  monitor */
 	{ "Gimp",                     NULL,       NULL,           0,        1,         1,          0,           0,        -1 },
 	{ "Firefox",                  NULL,       NULL,           1 << 1,   1,         0,          0,          -1,        -1 },
-	{ "firefoxdeveloperedition",  NULL,       NULL,           1 << 1,   1,         0,          0,          -1,        -1 },
-	{ "MEGAsync",                 NULL,       NULL,           0,        0,         1,          0,          -1,        -1 },
+
 	{ "st",                       NULL,       NULL,           0,        1,         0,          1,          -1,        -1 },
 	{ "St",                       NULL,       NULL,           0,        1,         0,          1,          -1,        -1 },
 	{ "URxvt",                    NULL,       NULL,           0,        1,         0,          1,          -1,        -1 },
+	{ "firefoxdeveloperedition",  NULL,       NULL,           1 << 1,   1,         0,          0,          -1,        -1 },
+	{ "MEGAsync",                 NULL,       NULL,           0,        0,         1,          0,          -1,        -1 },
 	{ "libreoffice-writer",       NULL,       NULL,           0,        1,         0,          0,          -1,        -1 },
+
 	{ NULL,                       NULL,       "Event Tester", 0,        1,         0,          0,           1,        -1 }, /* xev */
 };
 
@@ -75,7 +77,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+//static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[]   = { "dmenu_run", "-c", "-l", "20", "-g", "4", "-h", "32", "-wd", "900", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]    = { "st", NULL };
 
 #include "movestack.c"
