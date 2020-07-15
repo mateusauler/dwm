@@ -16,4 +16,5 @@
 - Swallow
 - Systray
 - Useless Gap
+- Xresources
 
