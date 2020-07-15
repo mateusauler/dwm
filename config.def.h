@@ -1,27 +1,28 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int gappx     = 6;        /* gaps between windows */
-static const unsigned int snap      = 32;       /* snap pixel */
+static unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
-static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
+static int showbar            = 1;        /* 0 means no bar */
+static int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Droid Sans Mono Nerd Font:size=10", "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=12";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#0055aa";
-static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+static char normbgcolor[]           = "#222222";
+static char normbordercolor[]       = "#444444";
+static char normfgcolor[]           = "#bbbbbb";
+static char selfgcolor[]            = "#eeeeee";
+static char selbordercolor[]        = "#005577";
+static char selbgcolor[]            = "#005577";
+static char *colors[][3] = {
+       /*               fg           bg           border   */
+       [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
+       [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
 };
  
 /* tagging */
@@ -47,9 +48,9 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
-static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
+static float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static int nmaster     = 1;    /* number of clients in master area */
+static int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
 #include "gaplessgrid.c"
 
@@ -77,9 +78,28 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-//static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *dmenucmd[]   = { "dmenu_run", "-c", "-l", "20", "-g", "4", "-h", "32", "-wd", "900", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+//static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
+static const char *dmenucmd[]   = { "dmenu_run", "-c", "-l", "20", "-g", "4", "-h", "32", "-wd", "900", "-m", dmenumon, "-fn", dmenufont, "-nb",  normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]    = { "st", NULL };
+
+/*
+ * Xresources preferences to load at startup
+ */
+ResourcePref resources[] = {
+		{ "normbgcolor",        STRING,  &normbgcolor },
+		{ "normbordercolor",    STRING,  &normbordercolor },
+		{ "normfgcolor",        STRING,  &normfgcolor },
+		{ "selbgcolor",         STRING,  &selbgcolor },
+		{ "selbordercolor",     STRING,  &selbordercolor },
+		{ "selfgcolor",         STRING,  &selfgcolor },
+		{ "borderpx",          	INTEGER, &borderpx },
+		{ "snap",          		INTEGER, &snap },
+		{ "showbar",          	INTEGER, &showbar },
+		{ "topbar",          	INTEGER, &topbar },
+		{ "nmaster",          	INTEGER, &nmaster },
+		{ "resizehints",       	INTEGER, &resizehints },
+		{ "mfact",      	 	FLOAT,   &mfact },
+};
 
 #include "movestack.c"
 #include "customkeys.h"
