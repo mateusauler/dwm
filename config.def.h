@@ -148,6 +148,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_r,      quit,           {1} },
 	{ MODKEY,                       XK_Escape, spawn,		   SHCMD("dwm-exit") },
+	{ MODKEY,                       XK_x,      spawn,          SHCMD("dwm-exit lock") },
+	{ MODKEY,                       XK_z,      spawn,          SHCMD("toggle_lang") },
 
 	// Audio stuff
 	{ 0,                            XK_AuPlay,     spawn,  SHCMD("playerctl play-pause") },
