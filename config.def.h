@@ -1,24 +1,24 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 6;        /* gaps between windows */
-static unsigned int snap      = 32;       /* snap pixel */
+static unsigned int borderpx             = 1;	/* border pixel of windows */
+static const unsigned int gappx          = 6;	/* gaps between windows */
+static unsigned int snap                 = 32;	/* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
-static const int showsystray        = 1;     /* 0 means no systray */
-static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
-static int showbar            = 1;        /* 0 means no bar */
-static int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Droid Sans Mono Nerd Font:size=10", "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=12";
-static char normbgcolor[]           = "#222222";
-static char normbordercolor[]       = "#444444";
-static char normfgcolor[]           = "#bbbbbb";
-static char selfgcolor[]            = "#eeeeee";
-static char selbordercolor[]        = "#005577";
-static char selbgcolor[]            = "#005577";
+static const int showsystray             = 1;	/* 0 means no systray */
+static const int swallowfloating         = 0;	/* 1 means swallow floating windows by default */
+static int showbar                       = 1;	/* 0 means no bar */
+static int topbar                        = 1;	/* 0 means bottom bar */
+static const char *fonts[]               = { "Droid Sans Mono Nerd Font:size=10", "monospace:size=10" };
+static const char dmenufont[]            = "monospace:size=12";
+static char normbgcolor[]                = "#222222";
+static char normbordercolor[]            = "#444444";
+static char normfgcolor[]                = "#bbbbbb";
+static char selfgcolor[]                 = "#eeeeee";
+static char selbordercolor[]             = "#005577";
+static char selbgcolor[]                 = "#005577";
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -86,19 +86,19 @@ static const char *termcmd[]    = { "st", NULL };
  * Xresources preferences to load at startup
  */
 ResourcePref resources[] = {
-		{ "color0",             STRING,  &normbgcolor },
-		{ "color0",             STRING,  &normbordercolor },
-		{ "color7",             STRING,  &normfgcolor },
-		{ "color4",             STRING,  &selbgcolor },
-		{ "color4",             STRING,  &selbordercolor },
-		{ "color0",             STRING,  &selfgcolor },
-		{ "borderpx",          	INTEGER, &borderpx },
-		{ "snap",               INTEGER, &snap },
-		{ "showbar",          	INTEGER, &showbar },
-		{ "topbar",          	INTEGER, &topbar },
-		{ "nmaster",          	INTEGER, &nmaster },
-		{ "resizehints",       	INTEGER, &resizehints },
-		{ "mfact",      	 	FLOAT,   &mfact },
+		{ "color0",      STRING,  &normbgcolor },
+		{ "color0",      STRING,  &normbordercolor },
+		{ "color7",      STRING,  &normfgcolor },
+		{ "color4",      STRING,  &selbgcolor },
+		{ "color4",      STRING,  &selbordercolor },
+		{ "color0",      STRING,  &selfgcolor },
+		{ "borderpx",    INTEGER, &borderpx },
+		{ "snap",        INTEGER, &snap },
+		{ "showbar",     INTEGER, &showbar },
+		{ "topbar",      INTEGER, &topbar },
+		{ "nmaster",     INTEGER, &nmaster },
+		{ "resizehints", INTEGER, &resizehints },
+		{ "mfact",       FLOAT,   &mfact },
 };
 
 #include "movestack.c"
@@ -106,37 +106,64 @@ ResourcePref resources[] = {
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	// Terminal and dmenu
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	
+	// Browser
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("$BROWSER_PRIV") },
+	
+	// Toggle bar
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	
+	// Stack manipulation
 	{ MODKEY|ControlMask,           XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ControlMask,           XK_k,      rotatestack,    {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
+	
+	// No. of masters
 	{ MODKEY,                       XK_s,      incnmaster,     {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_s,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	
+	// Size of master
+	{ MODKEY|ControlMask,           XK_h,      setmfact,       {.f = -0.05} },
+	{ MODKEY|ControlMask,           XK_l,      setmfact,       {.f = +0.05} },
+	
+	// Select/switch master
 	{ MODKEY,                       XK_space,  zoom,           {0} },
+
+	// Switch to last tag
 	{ MODKEY,                       XK_Tab,    view,           {0} },
+	
+	// Kill window
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
+	
+	// Layouts
 	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_i,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_p,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY|ShiftMask,             XK_p,      setlayout,      {.v = &layouts[5]} },
+	
+	// Set floating flag
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+	
+	// All tag operations
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	
+	// Monitors
+	{ MODKEY,                       XK_h,      focusmon,       {.i = -1 } },
+	{ MODKEY,                       XK_l,      focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_h,      tagmon,         {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_l,      tagmon,         {.i = +1 } },
+
+	// Tag keys
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -146,9 +173,13 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
+
+	// Quitting
 	{ MODKEY|ShiftMask,             XK_r,      quit,           {1} },
 	{ MODKEY,                       XK_Escape, spawn,		   SHCMD("dwm-exit") },
 	{ MODKEY,                       XK_x,      spawn,          SHCMD("dwm-exit lock") },
+
+	// Language
 	{ MODKEY,                       XK_z,      spawn,          SHCMD("toggle_lang") },
 
 	// Audio stuff
