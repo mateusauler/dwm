@@ -306,6 +306,8 @@ static Client *wintosystrayicon(Window w);
 static void load_xresources(void);
 static void resource_load(XrmDatabase db, char *name, enum resource_type rtype, void *dst);
 
+static void focusmaster(const Arg *arg);
+
 /* variables */
 static Systray *systray =  NULL;
 static const char broken[] = "broken";
@@ -3023,4 +3025,18 @@ updatesystray(void)
 	XSetForeground(dpy, drw->gc, scheme[SchemeNorm][ColBg].pixel);
 	XFillRectangle(dpy, systray->win, drw->gc, 0, 0, w, bh);
 	XSync(dpy, False);
- }
+}
+
+void
+focusmaster(const Arg *arg)
+{
+	Client *c;
+
+	if (selmon->nmaster < 1)
+		return;
+
+	c = nexttiled(selmon->clients);
+
+	if (c)
+		focus(c);
+}

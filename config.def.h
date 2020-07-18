@@ -136,6 +136,7 @@ static Key keys[] = {
 	
 	// Select/switch master
 	{ MODKEY,                       XK_space,  zoom,           {0} },
+	{ MODKEY|ControlMask,           XK_space,  focusmaster,    {0} },
 
 	// Switch to last tag
 	{ MODKEY,                       XK_Tab,    view,           {0} },
