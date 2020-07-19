@@ -79,8 +79,8 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 //static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
-//static const char *dmenucmd[]   = { "dmenu_run", "-c", "-l", "20", "-g", "4", "-h", "32", "-wd", "900", "-m", dmenumon, "-fn", dmenufont, "-nb",  normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
-static const char *dmenucmd[]   = { "dmenu_run", "-c", "-l", "20", "-g", "4", "-h", "32", "-wd", "900", "-m", dmenumon, NULL };
+//static const char *dmenucmd[]   = { "dmenu_run", "-c", "-l", "20", "-g", "4", "-h", "32", "-wd", "900", "-bw", "1", "-m", dmenumon, "-fn", dmenufont, "-nb",  normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
+static const char *dmenucmd[]   = { "dmenu_run", "-c", "-l", "20", "-g", "4", "-h", "32", "-wd", "900", "-bw", "1", "-m", dmenumon, NULL };
 static const char *termcmd[]    = { "st", NULL };
 
 /*
