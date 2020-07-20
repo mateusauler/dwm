@@ -2,6 +2,7 @@
 
 ### Currently applied patches:
 
+- Bar padding
 - Center
 - Centered Master
 - Focus Master

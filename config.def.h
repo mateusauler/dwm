@@ -2,7 +2,7 @@
 
 /* appearance */
 static unsigned int borderpx             = 1;	/* border pixel of windows */
-static const unsigned int gappx          = 6;	/* gaps between windows */
+static const unsigned int gappx          = 10;	/* gaps between windows */
 static unsigned int snap                 = 32;	/* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -11,6 +11,8 @@ static const int showsystray             = 1;	/* 0 means no systray */
 static const int swallowfloating         = 0;	/* 1 means swallow floating windows by default */
 static int showbar                       = 1;	/* 0 means no bar */
 static int topbar                        = 1;	/* 0 means bottom bar */
+static const int vertpad                 = 10;	/* vertical padding of bar */
+static const int sidepad                 = 10;	/* horizontal padding of bar */
 static const char *fonts[]               = { "Droid Sans Mono Nerd Font:size=10", "monospace:size=10" };
 static const char dmenufont[]            = "monospace:size=12";
 static char normbgcolor[]                = "#222222";
