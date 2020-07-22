@@ -1941,9 +1941,9 @@ setup(void)
 		die("no fonts could be loaded.");
 	lrpad = drw->fonts->h;
 	bh = drw->fonts->h + 2;
-	updategeom();
 	sp = sidepad;
 	vp = (topbar == 1) ? vertpad : - vertpad;
+	updategeom();
 
 	/* init atoms */
 	utf8string = XInternAtom(dpy, "UTF8_STRING", False);
@@ -2290,8 +2290,8 @@ updatebarpos(Monitor *m)
 	m->wy = m->my;
 	m->wh = m->mh;
 	if (m->showbar) {
-		m->wh = m->wh - vertpad - bh;
-		m->by = m->topbar ? m->wy : m->wy + m->wh + vertpad;
+		m->wh = m->wh - vp - bh;
+		m->by = m->topbar ? m->wy : m->wy + m->wh + vp;
 		m->wy = m->topbar ? m->wy + bh + vp : m->wy;
 	} else
 		m->by = -bh - vp;
