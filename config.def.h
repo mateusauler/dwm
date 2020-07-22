@@ -12,7 +12,7 @@ static const int swallowfloating         = 0;	/* 1 means swallow floating window
 static int showbar                       = 1;	/* 0 means no bar */
 static int topbar                        = 1;	/* 0 means bottom bar */
 static const int vertpad                 = 10;	/* vertical padding of bar */
-static const int sidepad                 = 10;	/* horizontal padding of bar */
+static const int sidepad                 = 300;	/* horizontal padding of bar */
 static const char *fonts[]               = { "Droid Sans Mono Nerd Font:size=10", "monospace:size=10" };
 static const char dmenufont[]            = "monospace:size=12";
 static char normbgcolor[]                = "#222222";
