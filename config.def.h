@@ -189,6 +189,9 @@ static Key keys[] = {
 	// Language
 	{ MODKEY,                       XK_z,      spawn,          SHCMD("toggle_lang") },
 
+	// Autoclicker
+	{ MODKEY|ShiftMask,             XK_F1,     spawn,          SHCMD("autoclicker") },
+
 	// Audio stuff
 	{ 0,                            XK_AuPlay,     spawn,  SHCMD("playerctl play-pause") },
 	{ 0,                            XK_AuPrev,     spawn,  SHCMD("playerctl previous") },
