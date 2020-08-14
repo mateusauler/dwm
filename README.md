@@ -5,6 +5,7 @@
 - Bar padding
 - Center
 - Centered Master
+- Empty View
 - Focus Master
 - Gapless Grid
 - Hide Vacant Tags
