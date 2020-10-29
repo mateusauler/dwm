@@ -12,7 +12,6 @@ static const int showsystray             = 1;	/* 0 means no systray */
 static const int swallowfloating         = 0;	/* 1 means swallow floating windows by default */
 static int showbar                       = 1;	/* 0 means no bar */
 static int topbar                        = 1;	/* 0 means bottom bar */
-static const int startontag              = 1;	/* 0 means no tag active on start */
 static const int user_bh                 = 26;	/* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const int vertpad                 = 10;	/* vertical padding of bar */
 static const int sidepad                 = 300;	/* horizontal padding of bar */
