@@ -307,6 +307,7 @@ static void load_xresources(void);
 static void resource_load(XrmDatabase db, char *name, enum resource_type rtype, void *dst);
 
 static void focusmaster(const Arg *arg);
+static void togglegaps(const Arg *arg);
 
 /* variables */
 static Systray *systray =  NULL;
@@ -352,6 +353,12 @@ static xcb_connection_t *xcon;
 
 /* configuration, allows nested code to access above variables */
 #include "config.h"
+
+static unsigned int defgappx;
+static int defvertpad;
+static int defsidepad;
+static int enablegaps = 1;
+static int defsmarthidegaps;
 
 /* compile-time check if all tags fit into an unsigned int bit array. */
 struct NumTags { char limitexceeded[LENGTH(tags) > 31 ? -1 : 1]; };
@@ -1940,6 +1947,10 @@ setup(void)
 	if (!drw_fontset_create(drw, fonts, LENGTH(fonts)))
 		die("no fonts could be loaded.");
 	lrpad = drw->fonts->h;
+	defgappx = gappx;
+	defvertpad = vertpad;
+	defsidepad = sidepad;
+	defsmarthidegaps = smarthidegaps;
 	bh = user_bh ? user_bh : drw->fonts->h + 2;
 	sp = sidepad;
 	vp = (topbar == 1) ? vertpad : - vertpad;
@@ -3038,4 +3049,39 @@ focusmaster(const Arg *arg)
 
 	if (c)
 		focus(c);
+}
+
+void
+togglegaps(const Arg *arg)
+{
+	enablegaps = !enablegaps;
+
+	if (enablegaps)
+	{
+		gappx         = defgappx;
+		vertpad       = defvertpad;
+		sidepad       = defsidepad;
+		smarthidegaps = defsmarthidegaps;
+	}
+	else
+	{
+		gappx         = 0;
+		vertpad       = 0;
+		sidepad       = 0;
+		smarthidegaps = 1;
+	}
+
+	sp = sidepad;
+	vp = (topbar == 1) ? vertpad : - vertpad;
+
+	Monitor *m;
+	for (m = mons; m; m = m->next)
+	{
+		updatebarpos(m);
+		resizebarwin(m);
+	}
+
+	arrange(0);
+
+	updategeom();
 }

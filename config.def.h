@@ -2,8 +2,8 @@
 
 /* appearance */
 static unsigned int borderpx             = 1;	/* border pixel of windows */
-static const unsigned int gappx          = 10;	/* gaps between windows */
-static const unsigned int smarthidegaps  = 0;	/* hide gaps when only one client is present */
+static unsigned int gappx                = 10;	/* gaps between windows */
+static unsigned int smarthidegaps        = 0;	/* hide gaps when only one client is present */
 static unsigned int snap                 = 32;	/* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -192,6 +192,9 @@ static Key keys[] = {
 
 	// Autoclicker
 	{ MODKEY|ShiftMask,             XK_F1,     spawn,          SHCMD("autoclicker") },
+
+	// Gaps
+	{ MODKEY,                       XK_g,       togglegaps,    {0} },
 
 	// Audio stuff
 	{ 0,                            XK_AuPlay,     spawn,  SHCMD("playerctl play-pause") },
