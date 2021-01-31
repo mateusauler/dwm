@@ -201,9 +201,9 @@ static Key keys[] = {
 	{ 0,                            XK_AuPlay,     spawn,  SHCMD("playerctl play-pause") },
 	{ 0,                            XK_AuPrev,     spawn,  SHCMD("playerctl previous") },
 	{ 0,                            XK_AuNext,     spawn,  SHCMD("playerctl next") },
-	{ 0,                            XK_AuLVolume,  spawn,  SHCMD("pactl set-sink-volume 1 -5%") },
-	{ 0,                            XK_AuRVolume,  spawn,  SHCMD("pactl set-sink-volume 1 +5%") },
-	{ 0,                            XK_AuMute	,  spawn,  SHCMD("pactl set-sink-mute 1 toggle") },
+	{ 0,                            XK_AuLVolume,  spawn,  SHCMD("pactl set-sink-volume 0 -5%") },
+	{ 0,                            XK_AuRVolume,  spawn,  SHCMD("pactl set-sink-volume 0 +5%") },
+	{ 0,                            XK_AuMute,     spawn,  SHCMD("pactl set-sink-mute 0 toggle") },
 };
 
 /* button definitions */
