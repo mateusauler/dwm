@@ -37,23 +37,26 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class                      instance    title           tags mask iscentered isfloating  isterminal  noswallow  monitor */
-	{ "firefox",                  NULL,       NULL,           1 << 1,   1,         0,          0,          -1,        -1 },
-	{ "firefoxdeveloperedition",  NULL,       NULL,           1 << 1,   1,         0,          0,          -1,        -1 },
-	{ "LibreWolf",                NULL,       NULL,           1 << 1,   1,         0,          0,          -1,        -1 },
+	/* class                      instance    title                    tags mask iscentered isfloating  isterminal  noswallow  monitor */
+	{ "firefox",                  NULL,       NULL,                    1 << 1,   1,         0,          0,          -1,        -1 },
+	{ "firefoxdeveloperedition",  NULL,       NULL,                    1 << 1,   1,         0,          0,          -1,        -1 },
+	{ "LibreWolf",                NULL,       NULL,                    1 << 1,   1,         0,          0,          -1,        -1 },
 
-	{ "st",                       NULL,       NULL,           0,        1,         0,          1,          -1,        -1 },
-	{ "St",                       NULL,       NULL,           0,        1,         0,          1,          -1,        -1 },
-	{ "URxvt",                    NULL,       NULL,           0,        1,         0,          1,          -1,        -1 },
-	{ "MEGAsync",                 NULL,       NULL,           0,        0,         1,          0,          -1,        -1 },
-	{ "libreoffice-writer",       NULL,       NULL,           0,        1,         0,          0,          -1,        -1 },
-	{ "qBittorrent",              NULL,       NULL,           1 << 4,   1,         0,          0,          -1,        -1 },
-	{ "Steam",                    NULL,       NULL,           1 << 3,   1,         0,          0,          -1,        -1 },
-	{ "FreeTube",                 NULL,       NULL,           1 << 2,   1,         0,          0,          -1,        -1 },
-	{ "discord",                  NULL,       NULL,           0,        1,         0,          0,          -1,         1 },
+	{ "st",                       NULL,       NULL,                    0,        1,         0,          1,          -1,        -1 },
+	{ "St",                       NULL,       NULL,                    0,        1,         0,          1,          -1,        -1 },
+	{ "URxvt",                    NULL,       NULL,                    0,        1,         0,          1,          -1,        -1 },
+	{ "MEGAsync",                 NULL,       NULL,                    0,        0,         1,          0,          -1,        -1 },
+	{ "libreoffice-writer",       NULL,       NULL,                    0,        1,         0,          0,          -1,        -1 },
+	{ "qBittorrent",              NULL,       NULL,                    1 << 5,   1,         0,          0,          -1,        -1 },
+	{ "Steam",                    NULL,       NULL,                    1 << 3,   1,         0,          0,          -1,        -1 },
+	{ "FreeTube",                 NULL,       NULL,                    1 << 2,   1,         0,          0,          -1,        -1 },
+	{ "discord",                  NULL,       NULL,                    0,        1,         0,          0,          -1,         1 },
 
-	{ NULL,                       NULL,       "Event Tester", 0,        1,         0,          0,           1,        -1 }, /* xev */
-	{ "Xephyr",                   NULL,       NULL,           0,        1,         0,          0,           1,         1 },
+	{ "KeePassXC",                NULL,       "Auto-Type - KeePassXC", -1,       1,         0,          0,          -1,        -1 },
+	{ "KeePassXC",                NULL,       NULL,                    1 << 4,   1,         0,          0,          -1,        -1 },
+
+	{ NULL,                       NULL,       "Event Tester",          0,        1,         0,          0,           1,        -1 }, /* xev */
+	{ "Xephyr",                   NULL,       NULL,                    0,        1,         0,          0,           1,         1 },
 };
 
 /* layout(s) */
