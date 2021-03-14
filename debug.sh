@@ -5,6 +5,7 @@ export DISPLAY=":1"
 make
 if [ $# -eq 1 ] && [ "$1" = "run" ]
 then
+	sleep 1
 	./dwm &
 else
 	gdb ./dwm
