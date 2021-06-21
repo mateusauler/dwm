@@ -196,6 +196,9 @@ static Key keys[] = {
 	// Language
 	{ MODKEY,                       XK_z,      spawn,          SHCMD("toggle_lang") },
 
+	// Screenshot
+	{ 0,                            XK_Print,  spawn,          SHCMD("flameshot gui") },
+
 	// Autoclicker
 	{ MODKEY|ShiftMask,             XK_F1,     spawn,          SHCMD("autoclicker") },
 
