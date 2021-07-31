@@ -2,7 +2,7 @@
 
 /* appearance */
 static unsigned int borderpx             = 1;	/* border pixel of windows */
-static unsigned int gappx                = 10;	/* gaps between windows */
+static unsigned int gappx                = 5;	/* gaps between windows */
 static unsigned int smarthidegaps        = 0;	/* hide gaps when only one client is present */
 static unsigned int snap                 = 32;	/* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
@@ -13,8 +13,8 @@ static const int swallowfloating         = 0;	/* 1 means swallow floating window
 static int showbar                       = 1;	/* 0 means no bar */
 static int topbar                        = 1;	/* 0 means bottom bar */
 static const int user_bh                 = 26;	/* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
-static int vertpad                       = 10;	/* vertical padding of bar */
-static int sidepad                       = 10;	/* horizontal padding of bar */
+static int vertpad                       = 5;	/* vertical padding of bar */
+static int sidepad                       = 5;	/* horizontal padding of bar */
 static const char *fonts[]               = { "Droid Sans Mono Nerd Font:size=10", "monospace:size=10" };
 static const char dmenufont[]            = "monospace:size=12";
 static char normbgcolor[]                = "#222222";
