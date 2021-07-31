@@ -57,6 +57,7 @@ static const Rule rules[] = {
 
 	{ NULL,                       NULL,       "Event Tester",          0,        1,         0,          0,           1,        -1 }, /* xev */
 	{ "Xephyr",                   NULL,       NULL,                    0,        1,         0,          0,           1,         1 },
+	{ NULL,                       NULL,       "lstopo",                0,        1,         0,          0,           1,        -1 },
 };
 
 /* layout(s) */
