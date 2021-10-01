@@ -75,8 +75,6 @@ static const Layout layouts[] = {
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 	{ "HHH",      gaplessgrid },
-	{ "|M|",      centeredmaster },	
-	{ ">M>",      centeredfloatingmaster },
 };
 
 /* key definitions */
