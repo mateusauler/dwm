@@ -4,6 +4,7 @@
 
 - Bar padding
 - Center
+- Deck Double
 - Focus Master
 - Gapless Grid
 - Hide Vacant Tags
