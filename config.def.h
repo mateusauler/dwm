@@ -76,6 +76,7 @@ static const Layout layouts[] = {
 	{ "[M]",      monocle },
 	{ "HHH",      gaplessgrid },
 	{ "DD",       doubledeck },
+	{ "|||",      col },
 };
 
 /* key definitions */

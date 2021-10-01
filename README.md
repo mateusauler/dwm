@@ -4,6 +4,7 @@
 
 - Bar padding
 - Center
+- Columns
 - Deck Double
 - Focus Master
 - Gapless Grid
