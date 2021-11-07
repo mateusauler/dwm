@@ -41,6 +41,8 @@ static const Rule rules[] = {
 	{ "firefox",                  NULL,       NULL,                    1 << 1,   1,         0,          0,          -1,         0 },
 	{ "firefoxdeveloperedition",  NULL,       NULL,                    1 << 1,   1,         0,          0,          -1,         0 },
 	{ "LibreWolf",                NULL,       NULL,                    1 << 1,   1,         0,          0,          -1,         0 },
+	{ "librewolf",                NULL,       NULL,                    1 << 1,   1,         0,          0,          -1,         0 },
+	{ "Navigator",                NULL,       NULL,                    1 << 1,   1,         0,          0,          -1,         0 },
 
 	{ "st",                       NULL,       NULL,                    0,        1,         0,          1,          -1,        -1 },
 	{ "St",                       NULL,       NULL,                    0,        1,         0,          1,          -1,        -1 },
@@ -49,8 +51,9 @@ static const Rule rules[] = {
 	{ "libreoffice-writer",       NULL,       NULL,                    0,        1,         0,          0,          -1,        -1 },
 	{ "qBittorrent",              NULL,       NULL,                    1 << 4,   1,         0,          0,          -1,        -1 },
 	{ "FreeTube",                 NULL,       NULL,                    1 << 2,   1,         0,          0,          -1,        -1 },
-	{ "discord",                  NULL,       NULL,                    0,        1,         0,          0,          -1,         1 },
+	{ "discord",                  NULL,       NULL,                    1,        1,         0,          0,          -1,         1 },
 	{ "Steam",                    NULL,       NULL,                    1 << 1,   1,         0,          0,          -1,         1 },
+	{ NULL,                       NULL,       "Steam",                 1 << 1,   1,         0,          0,          -1,         1 },
 
 	{ "KeePassXC",                NULL,       "Auto-Type - KeePassXC", -1,       1,         0,          0,          -1,        -1 },
 	{ "KeePassXC",                NULL,       NULL,                    1 << 3,   1,         0,          0,          -1,        -1 },
