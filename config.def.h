@@ -52,6 +52,7 @@ static const Rule rules[] = {
 	{ "qBittorrent",              NULL,       NULL,                    1 << 1,   1,         0,          0,          -1,         2 },
 	{ "FreeTube",                 NULL,       NULL,                    1 << 2,   1,         0,          0,          -1,         0 },
 	{ "discord",                  NULL,       NULL,                    1,        1,         0,          0,          -1,         1 },
+	{ "Ferdi",                    NULL,       NULL,                    1,        1,         0,          0,          -1,         1 },
 	{ "Steam",                    NULL,       NULL,                    1,        1,         0,          0,          -1,         2 },
 	{ NULL,                       NULL,       "Steam",                 1,        1,         0,          0,          -1,         2 },
 
