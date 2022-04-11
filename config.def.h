@@ -49,14 +49,14 @@ static const Rule rules[] = {
 	{ "URxvt",                    NULL,       NULL,                    0,        1,         0,          1,          -1,        -1 },
 	{ "MEGAsync",                 NULL,       NULL,                    0,        0,         1,          0,          -1,        -1 },
 	{ "libreoffice-writer",       NULL,       NULL,                    0,        1,         0,          0,          -1,        -1 },
-	{ "qBittorrent",              NULL,       NULL,                    1 << 4,   1,         0,          0,          -1,        -1 },
-	{ "FreeTube",                 NULL,       NULL,                    1 << 2,   1,         0,          0,          -1,        -1 },
+	{ "qBittorrent",              NULL,       NULL,                    1 << 1,   1,         0,          0,          -1,         2 },
+	{ "FreeTube",                 NULL,       NULL,                    1 << 2,   1,         0,          0,          -1,         0 },
 	{ "discord",                  NULL,       NULL,                    1,        1,         0,          0,          -1,         1 },
-	{ "Steam",                    NULL,       NULL,                    1 << 1,   1,         0,          0,          -1,         1 },
-	{ NULL,                       NULL,       "Steam",                 1 << 1,   1,         0,          0,          -1,         1 },
+	{ "Steam",                    NULL,       NULL,                    1,        1,         0,          0,          -1,         2 },
+	{ NULL,                       NULL,       "Steam",                 1,        1,         0,          0,          -1,         2 },
 
 	{ "KeePassXC",                NULL,       "Auto-Type - KeePassXC", -1,       1,         0,          0,          -1,        -1 },
-	{ "KeePassXC",                NULL,       NULL,                    1 << 3,   1,         0,          0,          -1,        -1 },
+	{ "KeePassXC",                NULL,       NULL,                    1 << 3,   1,         0,          0,          -1,         0 },
 
 	{ NULL,                       NULL,       "Event Tester",          0,        1,         0,          0,           1,        -1 }, /* xev */
 	{ "Xephyr",                   NULL,       NULL,                    0,        1,         0,          0,           1,         1 },
@@ -68,7 +68,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static int nmaster     = 1;    /* number of clients in master area */
-static int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
 #include "gaplessgrid.c"
 
@@ -207,17 +207,17 @@ static Key keys[] = {
 	{ 0,                            XK_Print,  spawn,          SHCMD("flameshot gui") },
 
 	// Autoclicker
-	{ MODKEY|ShiftMask,             XK_F1,     spawn,          SHCMD("autoclicker") },
+	{ MODKEY,                       XK_F1,     spawn,          SHCMD("autoclicker") },
 
 	// Gaps
-	{ MODKEY,                       XK_g,       togglegaps,    {0} },
+	{ MODKEY,                       XK_g,      togglegaps,    {0} },
 
 	// Audio stuff
 	{ 0,                            XK_AuPlay,     spawn,  SHCMD("playerctl play-pause") },
 	{ 0,                            XK_AuPrev,     spawn,  SHCMD("playerctl previous") },
 	{ 0,                            XK_AuNext,     spawn,  SHCMD("playerctl next") },
-	{ 0,                            XK_AuLVolume,  spawn,  SHCMD("pactl set-sink-volume 0 -5%") },
-	{ 0,                            XK_AuRVolume,  spawn,  SHCMD("pactl set-sink-volume 0 +5%") },
+	{ 0,                            XK_AuLVolume,  spawn,  SHCMD("pactl set-sink-volume 0 -1%") },
+	{ 0,                            XK_AuRVolume,  spawn,  SHCMD("pactl set-sink-volume 0 +1%") },
 	{ 0,                            XK_AuMute,     spawn,  SHCMD("pactl set-sink-mute 0 toggle") },
 };
 
