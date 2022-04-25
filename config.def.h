@@ -134,6 +134,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("$BROWSER_PRIV") },
 	{ MODKEY|ControlMask,           XK_w,      spawn,          SHCMD("$BROWSER_PROF") },
+
+	// Clipmenu
+	{ MODKEY,                       XK_c,      spawn,          SHCMD("clipmenu -g 1") },
 	
 	// Toggle bar
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
