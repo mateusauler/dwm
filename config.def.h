@@ -49,6 +49,7 @@ static const Rule rules[] = {
 	{ "URxvt",                    NULL,       NULL,                    0,        1,         0,          1,          -1,        -1 },
 	{ "MEGAsync",                 NULL,       NULL,                    0,        0,         1,          0,          -1,        -1 },
 	{ "libreoffice-writer",       NULL,       NULL,                    0,        1,         0,          0,          -1,        -1 },
+	{ "mpv",                      NULL,       NULL,                    0,        1,         0,          0,          -1,         0 },
 	{ "qBittorrent",              NULL,       NULL,                    1 << 1,   1,         0,          0,          -1,         2 },
 	{ "FreeTube",                 NULL,       NULL,                    1 << 2,   1,         0,          0,          -1,         0 },
 	{ "discord",                  NULL,       NULL,                    1,        1,         0,          0,          -1,         1 },
