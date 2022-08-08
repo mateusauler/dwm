@@ -144,6 +144,9 @@ static Key keys[] = {
 
 	// Clipmenu
 	{ MODKEY,                       XK_c,      spawn,          SHCMD("clipmenu -g 1") },
+
+	// Neovide
+	{ MODKEY,                       XK_n,      spawn,          SHCMD("neovide") },
 	
 	// Toggle bar
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
