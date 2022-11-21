@@ -85,8 +85,8 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-//#define ALTMOD
-#ifdef ALTMOD
+#define ALTMOD 0
+#if ALTMOD
 	#define MODKEY Mod1Mask
 	#define AltMask Mod4Mask
 #else
