@@ -52,7 +52,7 @@ static const Rule rules[] = {
 	{ "mpv",                      NULL,       NULL,                    0,        1,         0,          0,          -1,         0 },
 	{ "qBittorrent",              NULL,       NULL,                    1 << 1,   1,         0,          0,          -1,         2 },
 	{ "discord",                  NULL,       NULL,                    1,        1,         0,          0,          -1,         1 },
-	{ "Ferdi",                    NULL,       NULL,                    1,        1,         0,          0,          -1,         1 },
+	{ "Ferdium",                  NULL,       NULL,                    1,        1,         0,          0,          -1,         1 },
 	{ "Steam",                    NULL,       NULL,                    1,        1,         0,          0,          -1,         2 },
 	{ NULL,                       NULL,       "Steam",                 1,        1,         0,          0,          -1,         2 },
 
@@ -249,4 +249,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
